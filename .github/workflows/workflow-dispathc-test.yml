@@ -1,0 +1,12 @@
+name: Manual Trigger Example
+on:
+  workflow_dispatch:
+      branches:
+        - workflow-dispathc-test
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a build step
+        run: echo "This is a manually triggered workflow"
