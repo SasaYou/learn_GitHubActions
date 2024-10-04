@@ -1,12 +1,27 @@
-name: Test workflow
-on: 
+name: Another Workflow
+
+on:
   push:
-    paths: ['django/**' ]
+    branches:
+      - main
 
 jobs:
-  run:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${BRANCH}"     # シェルコマンドからジョブレベルの環境変数を参照
-      - name: Sleep for 10 seconds
-        run: sleep 10  # 10秒間スリープ
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run build script
+        run: |
+          echo "Building project..."
+          # ビルドスクリプトをここに追加
+
+      - name: Create completion artifact
+        run: echo "Build completed" > completion_artifact.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: completion_artifact
+          path: completion_artifact.txt
