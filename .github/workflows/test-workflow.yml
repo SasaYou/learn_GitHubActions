@@ -1,0 +1,9 @@
+name: Test workflow 
+on: 
+  pull_request:
+    paths: ['django/*' ]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${BRANCH}"     # シェルコマンドからジョブレベルの環境変数を参照
