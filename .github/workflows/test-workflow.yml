@@ -1,7 +1,8 @@
 name: Test workflow 
 on: 
   pull_request:
-    paths: ['django/*' ]
+    branches: [main]
+    paths: ['django/**' ]
 jobs:
   run:
     runs-on: ubuntu-latest
