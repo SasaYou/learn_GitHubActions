@@ -2,14 +2,14 @@ name: Another Workflow
 
 on:
   push:
-    paths: 'djagno/**'
+    paths: 'django/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Run build script
         run: |
@@ -20,7 +20,7 @@ jobs:
         run: echo "Build completed" > completion_artifact.txt
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: completion_artifact
           path: completion_artifact.txt
