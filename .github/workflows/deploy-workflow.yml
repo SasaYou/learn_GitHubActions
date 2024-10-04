@@ -1,12 +1,13 @@
 name: Deploy Workflow
 
-on:
+on:  
+  workflow_dispatch: 
   workflow_run:
     workflows: ["Test workflow"]  # 依存するワークフローの名前
     types:
       - completed  # ワークフローが完了した時にトリガー
     conclusion: success  # 成功した場合にのみ実行
-  workflow_dispatch: 
+
 
 jobs:
   deploy:
