@@ -1,1 +1,1 @@
-print('hello OK!')
+print('hello OK! いいね！')
