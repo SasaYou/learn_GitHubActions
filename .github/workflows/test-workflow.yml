@@ -2,14 +2,14 @@ name: Another Workflow
 
 on:
   push:
-    paths: 'djagno/**'
+    paths: 'django/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Run build script
         run: |
