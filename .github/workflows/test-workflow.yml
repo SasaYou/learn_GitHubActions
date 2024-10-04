@@ -20,7 +20,7 @@ jobs:
         run: echo "Build completed" > completion_artifact.txt
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: completion_artifact
           path: completion_artifact.txt
