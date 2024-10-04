@@ -1,21 +1,18 @@
-name: Example Workflow
+name: Deploy Workflow
 
-on:
-  workflow_dispatch:
+on:  
+  workflow_dispatch: 
+  workflow_run:
+    workflows: ["Test workflow"]  # 依存するワークフローの名前
+    types:
+      - completed  # ワークフローが完了した時にトリガー
+    conclusion: success  # 成功した場合にのみ実行
+
 
 jobs:
-  example_job:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Check for completion artifact
-        run: |
-          if [ ! -f path/to/completion_artifact ]; then
-            echo "Another Workflow has not completed."
-            exit 1
-          fi
-
-      - name: Run a script
-        run: echo "Hello, world!"
+      - uses: actions/checkout@v3
+      - name: Deploy
+        run: echo "Deploying application..."
