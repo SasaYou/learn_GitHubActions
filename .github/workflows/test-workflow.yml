@@ -1,4 +1,4 @@
-name: Test workflow 
+name: Test workflow
 on: 
   push:
     paths: ['django/**' ]
@@ -8,3 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${BRANCH}"     # シェルコマンドからジョブレベルの環境変数を参照
+      - name: Sleep for 10 seconds
+        run: sleep 10  # 10秒間スリープ
