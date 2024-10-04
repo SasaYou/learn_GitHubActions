@@ -12,10 +12,12 @@ jobs:
 
       - name: Check for completion artifact
         run: |
-          if [ ! -f path/to/completion_artifact ]; then
+          if [ ! -f completion_artifact.txt ]; then
             echo "Another Workflow has not completed."
             exit 1
           fi
 
       - name: Run a script
         run: echo "Hello, world!"
+      - name: Delete completion artifact
+        run: rm completion_artifact.txt
