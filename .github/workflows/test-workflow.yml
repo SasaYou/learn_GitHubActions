@@ -1,6 +1,6 @@
 name: Test workflow 
 on: 
-  pull_request:
+  push:
     paths: ['django/**' ]
 
 jobs:

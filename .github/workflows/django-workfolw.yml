@@ -1,0 +1,17 @@
+name: Django Workflow
+
+on:
+  pull_request:
+    paths:
+      - 'django/**'  # djangoディレクトリ内に変更があった場合に実行
+  push:
+    paths:
+      - 'django/**'  # djangoディレクトリ内に変更があった場合に実行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Django build
+        run: echo "Building Django project..."
